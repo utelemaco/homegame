@@ -1,0 +1,15 @@
+version: '2'
+services:
+    homegame-app:
+        image: homegame
+        external_links:
+            - homegame-mysql:mysql
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod
+            - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/homegame?useUnicode=true&characterEncoding=utf8&useSSL=false
+        ports:
+            - 8080:8080
+    homegame-mysql:
+        extends:
+            file: mysql.yml
+            service: homegame-mysql

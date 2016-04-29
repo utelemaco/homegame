@@ -1,0 +1,33 @@
+
+<div>
+    <h2><span translate="homegameApp.score.detail.title">Score</span> {{vm.score.id}}</h2>
+    <hr>
+    <dl class="dl-horizontal">
+        <dt><span translate="homegameApp.score.in">In</dt></dt>
+        <dd>
+            <span>{{vm.score.in}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="homegameApp.score.out">Out</dt></dt>
+        <dd>
+            <span>{{vm.score.out}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="homegameApp.score.user">user</span></dt>
+        <dd>
+            {{vm.score.user.name}}
+        </dd>
+        <hr>
+        <dt><span translate="homegameApp.score.round">round</span></dt>
+        <dd>
+            <a ui-sref="round-detail({id:vm.score.round.id})">{{vm.score.round.name}}</a>
+        </dd>
+        <hr>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

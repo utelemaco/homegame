@@ -1,0 +1,28 @@
+
+<div>
+    <h2><span translate="homegameApp.round.detail.title">Round</span> {{vm.round.id}}</h2>
+    <hr>
+    <dl class="dl-horizontal">
+        <dt><span translate="homegameApp.round.name">Name</dt></dt>
+        <dd>
+            <span>{{vm.round.name}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="homegameApp.round.date">Date</dt></dt>
+        <dd>
+            <span>{{vm.round.date | date:'medium'}}</span>
+        </dd>
+        <hr>
+        <dt><span translate="homegameApp.round.game">game</span></dt>
+        <dd>
+            <a ui-sref="game-detail({id:vm.round.game.id})">{{vm.round.game.name}}</a>
+        </dd>
+        <hr>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

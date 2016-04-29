@@ -1,0 +1,62 @@
+<div>
+    <h2 translate="homegameApp.round.home.title">Rounds</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="round.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="homegameApp.round.home.createLabel">
+                        Create new Round
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span translate="global.field.id">ID</span></th>
+                    <th><span translate="homegameApp.round.name">Name</span></th>
+                    <th><span translate="homegameApp.round.date">Date</span></th>
+                    <th><span translate="homegameApp.round.game">game</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="round in vm.rounds track by round.id">
+                    <td><a ui-sref="round-detail({id:round.id})">{{round.id}}</a></td>
+                    <td>{{round.name}}</td>
+                    <td>{{round.date | date:'medium'}}</td>
+                    <td>
+                        <a ui-sref="game-detail({id:round.game.id})">{{round.game.name}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="round-detail({id:round.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="round.edit({id:round.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="round.delete({id:round.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

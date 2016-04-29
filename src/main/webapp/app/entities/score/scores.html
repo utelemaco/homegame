@@ -1,0 +1,66 @@
+<div>
+    <h2 translate="homegameApp.score.home.title">Scores</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="score.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="homegameApp.score.home.createLabel">
+                        Create new Score
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span translate="global.field.id">ID</span></th>
+                    <th><span translate="homegameApp.score.in">In</span></th>
+                    <th><span translate="homegameApp.score.out">Out</span></th>
+                    <th><span translate="homegameApp.score.user">user</span></th>
+                    <th><span translate="homegameApp.score.round">round</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="score in vm.scores track by score.id">
+                    <td><a ui-sref="score-detail({id:score.id})">{{score.id}}</a></td>
+                    <td>{{score.in}}</td>
+                    <td>{{score.out}}</td>
+                    <td>
+                        {{score.user.name}}
+                    </td>
+                    <td>
+                        <a ui-sref="round-detail({id:score.round.id})">{{score.round.name}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="score-detail({id:score.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="score.edit({id:score.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="score.delete({id:score.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
